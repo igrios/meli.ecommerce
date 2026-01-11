@@ -7,6 +7,9 @@ import lombok.Builder;
 import lombok.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
+
+
 
 @Entity
 @Table(name = "orders")
@@ -17,38 +20,30 @@ import java.time.LocalDateTime;
 @Builder
 
 public class Order {
-	
-	@Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-	
-	
-	   // Relación con el producto
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
 
-    private Integer quantity;
+    // ID real de Mercado Libre
+    @Column(name = "meli_order_id", unique = true)
+    private String meliOrderId;
 
-    @Column(name = "unit_price")
-    private BigDecimal unitPrice;
+    @Column(name = "buyer_id")
+    private String buyerId;
 
-    @Column(name = "total_price")
-    private BigDecimal totalPrice;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
 
-    // Ej: paid, pending, cancelled
-    @Column(name = "order_status")
-    private String orderStatus;
-
-    // Ej: ready_to_ship, shipped
     @Column(name = "shipping_status")
     private String shippingStatus;
 
-    @Column(name = "buyer_nickname")
-    private String buyerNickname;
+    @Column(name = "total_amount")
+    private BigDecimal totalAmount;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<OrderItem> items;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
-	
-
 }
