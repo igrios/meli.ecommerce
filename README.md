@@ -1,4 +1,5 @@
-ca va toda la descripcion del proyecto 🛒 Meli AI Ecommerce — Backend Automatizado
+Aca va toda la descripcion del proyecto 
+🛒 Meli AI Ecommerce — Backend Automatizado
 
 Sistema backend para automatizar ventas en Mercado Libre usando IA, reglas de negocio y automatización, minimizando la intervención humana al mínimo posible.
 
@@ -32,7 +33,8 @@ MySQL
 
 API Sandbox de Mercado Libre
 
-🧱 Arquitectura Stack
+🧱 Arquitectura
+Stack
 
 Java 21
 
@@ -46,7 +48,8 @@ Lombok
 
 REST API
 
-🗂️ Dominio Product
+🗂️ Dominio
+Product
 
 Representa un producto publicado en Mercado Libre.
 
@@ -106,15 +109,26 @@ order_id
 
 createdAt
 
-MessageStatus RECEIVED AUTO_REPLIED DERIVED_WHATSAPP PENDING_REVIEW
+MessageStatus
+RECEIVED
+AUTO_REPLIED
+DERIVED_WHATSAPP
+PENDING_REVIEW
 
-📡 API de Mensajes Crear mensaje POST /api/messages
+📡 API de Mensajes
+Crear mensaje
+POST /api/messages
+
 
 Ejemplo:
 
-curl -X POST http://localhost:8080/api/messages
--H "Content-Type: application/json"
--d '{ "buyerId": "buyer003", "messageText": "Hola, cuanto cuesta?", "productId": 1 }'
+curl -X POST http://localhost:8080/api/messages \
+-H "Content-Type: application/json" \
+-d '{
+  "buyerId": "buyer003",
+  "messageText": "Hola, cuanto cuesta?",
+  "productId": 1
+}'
 
 🧠 Motor de decisión IA
 
@@ -160,17 +174,22 @@ Mensaje:
 
 Hola, cuanto cuesta?
 
+
 Resultado en DB:
 
-status = AUTO_REPLIED ai_response = "Hola 👋 El precio del producto es $95000.00..."
+status = AUTO_REPLIED
+ai_response = "Hola 👋 El precio del producto es $95000.00..."
+
 
 Mensaje:
 
 Necesito factura A y entrega mañana antes de las 9
 
+
 Resultado:
 
-status = DERIVED_WHATSAPP ai_response = NULL
+status = DERIVED_WHATSAPP
+ai_response = NULL
 
 🧩 Flujo completo actual
 
@@ -220,6 +239,9 @@ Despacha
 
 🧪 Estado del proyecto
 
-Backend funcional Base de datos viva Mensajes automatizados IA inicial activa
+Backend funcional
+Base de datos viva
+Mensajes automatizados
+IA inicial activa
 
 🚀 Listo para escalar a Mercado Libre Sandbox y producción.
