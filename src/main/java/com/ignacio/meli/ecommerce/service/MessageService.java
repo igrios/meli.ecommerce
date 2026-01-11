@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 public class MessageService {
 
     private final MessageRepository messageRepository;
-    private final MessageDecisionService decisionService;
+   // private final MessageDecisionService decisionService;
     
    
     
@@ -30,7 +30,7 @@ public class MessageService {
 
         message.setStatus(MessageStatus.RECEIVED);
 
-        decisionService.process(message);
+        //decisionService.process(message);
 
         return messageRepository.save(message);
     }

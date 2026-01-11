@@ -11,8 +11,8 @@ import com.ignacio.meli.ecommerce.domain.MessageStatus;
 
 public interface MessageRepository extends JpaRepository<Message,Long>{
 	
-	  Optional<Message> findByMeliMessageId(String meliMessageId);
-
+	    Optional<Message> findByMeliMessageId(String meliMessageId);
 	    List<Message> findByStatus(MessageStatus status);
+	    List<Message> findByStatusIn(List<MessageStatus> statuses);
 
 }

@@ -41,7 +41,7 @@ public class Order {
     @Column(name = "total_amount")
     private BigDecimal totalAmount;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<OrderItem> items;
 
     @Column(name = "created_at")
